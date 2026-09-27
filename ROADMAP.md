@@ -124,3 +124,7 @@ Internal audience and revenue targets remain private owner-review inputs, not pu
 - Keep the site and public repository general-audience and separated from private brands, lore, prompts, paths, and operator data.
 - Do not add a framework without a demonstrated need; the static site remains the free, low-risk default.
 - Preserve built → approved → pushed → deployed → live-verified as separate states.
+
+## Execution update — September 27, 2026
+
+See `ROADMAP-EXECUTION-2026-09-27.md` for the current implementation, tests and residual dependencies. Older install/deploy instructions are historical; the portfolio installation hold remains in force.
