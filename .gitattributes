@@ -1,0 +1,36 @@
+# Line-ending normalization.
+#
+# Why this file exists: four different agents (Claude, Codex, Cursor, and the
+# owner's Windows editors) write into this working tree. Without normalization,
+# a Windows tool rewriting CRLF endings produces diffs where every line of a
+# file appears changed — on 2026-09-27 that was 307 phantom line changes across
+# five files with zero content change. Phantom diffs bury real ones, and a real
+# defect hidden inside 307 noise lines is how a broken service worker ships.
+#
+# Rule: text files are stored LF in the repository. Checkout behavior is left to
+# each tool, so Windows editors keep working normally.
+
+* text=auto eol=lf
+
+# Binary assets must never be touched.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.webp  binary
+*.avif  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.pdf   binary
+*.zip   binary
+*.mp3   binary
+*.mp4   binary
+*.wav   binary
+
+# Windows-only helper scripts are expected to have CRLF on disk.
+*.ps1   text eol=crlf
+*.bat   text eol=crlf
+*.cmd   text eol=crlf
