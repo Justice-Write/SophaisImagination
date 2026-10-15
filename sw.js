@@ -3,7 +3,7 @@
    No analytics, no cookies, no tracking. Nothing is sent anywhere.
    Bump CACHE when the site changes so stale pages are discarded. */
 
-const CACHE = 'sophai-v1.0.0';
+const CACHE = 'sophai-20260927';
 
 const PRECACHE = [
   '/',
@@ -25,14 +25,14 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE)
       .then((cache) => cache.addAll(PRECACHE.map((u) => new Request(u, { cache: 'reload' }))))
       .then(() => self.skipWaiting())
-      .catch(() => self.skipWaiting())
+
   );
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k))))
+      .then((keys) => Promise.all(keys.filter((k) => k.startsWith('sophai-') && k !== CACHE).map((k) => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -46,23 +46,24 @@ self.addEventListener('fetch', (event) => {
   if (req.mode === 'navigate') {
     event.respondWith(
       fetch(req)
-        .then((res) => {
+        .then(async (res) => {
+          if (res.status !== 200) return res;
           const copy = res.clone();
-          caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+          await caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
           return res;
         })
-        .catch(() => caches.match(req).then((hit) => hit || caches.match('/offline.html')))
+        .catch(() => caches.match(req).then((hit) => hit || caches.match('/offline.html').then((fallback) => fallback || Response.error())))
     );
     return;
   }
 
   event.respondWith(
-    caches.match(req).then((hit) => hit || fetch(req).then((res) => {
+    caches.match(req).then((hit) => hit || fetch(req).then(async (res) => {
       if (res && res.status === 200 && res.type === 'basic') {
         const copy = res.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+        await caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
       }
       return res;
-    }).catch(() => hit))
+    }).catch(() => hit || Response.error()))
   );
 });
