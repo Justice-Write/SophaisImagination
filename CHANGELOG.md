@@ -1,5 +1,18 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-14 — LOCAL, UNPUSHED — BRANCH RECONCILIATION
+
+Four agents had left four divergent branches and `main` had not moved since
+2026-09-26. Reconciled to a single verified `main`, still unpushed.
+
+- Merged `codex/roadmap-sites-20260927` (service-worker hardening). Re-verified before merging rather than taken on report: `verify_site.py` passes, `node --check` valid, `tests/sw.test.cjs` 7/7. The substantive change is that `.catch(() => self.skipWaiting())` is gone from the install handler, so a worker whose precache failed can no longer replace a working one; cache deletion is now scoped to the `sophai-` prefix; non-200 navigations are no longer cached; and failed fetches return `Response.error()` instead of `undefined`.
+- Merged `chore/eol-normalization-and-live-pwa-evidence` (`.gitattributes` plus the dated live verification record).
+- **Did not merge `cursor/pwa-install-cb61`.** It is a competing PWA implementation written before the shipped one and is superseded. Merging it would have regressed the site: it adds a *second* service worker (`service-worker.js` beside `sw.js`) on one origin, its manifest offers only 180×180 and 32×32 icons with no maskable variant — below the 192/512 Android needs, so installability would likely fail — and its `start_url` is `/install.html`, which would launch the installed app onto an instructions page instead of the site. Its two new pages also carry no AI-created/synthetic disclosure and are absent from `.pages-manifest`. Retained unmerged as history; nothing in it is unique.
+- Only one file in this merge actually deploys: `sw.js`. `.gitattributes`, `ROADMAP.md`, `ROADMAP-EXECUTION-2026-09-27.md`, `tests/sw.test.cjs` and `docs/LIVE-PWA-VERIFICATION-2026-09-27.md` are repository-only.
+- Verified on the exact merged tree: site verifier passes, `sw.js` valid, SW suite 7/7, manifest valid with all four icons present on disk, all 9 HTML files parse, exactly one service worker in the repository.
+- Pre-flighted the `_ops/push.ps1` gates so the push does not fail late: all four unpushed commits use `@users.noreply.github.com` for author and committer, `git diff --check` is clean, the working tree is clean, and the checkout was moved to `main` (the helper refuses any other branch). Codex's branch was confirmed fully contained in `main` first, so nothing was lost.
+- No push, deployment, account change, post, generation, purchase, or device installation was performed.
+
 ## 2026-09-26 — FIX: PWA DEPLOY WAS FAILING
 
 - The 2026-09-25 PWA push never went live: the Pages workflow's verifier failed with "Root public files missing from .pages-manifest: icon-192.png, icon-512.png". Those two root-level icons were unreferenced duplicates (the manifest, pages and service worker all use `/assets/icon-*.png`), so they were removed from the repository rather than published. `scripts/verify_site.py` passes.

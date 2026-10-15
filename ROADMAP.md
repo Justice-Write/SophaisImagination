@@ -70,6 +70,23 @@ The highest-value next unit is not another speculative site section. It is an ap
 - [DONE] Read-only verification on 2026-09-24 matched all 45 HTTP-comparable public files to `753de4d`; internal references, key assets, apex/www redirects, sitemap, robots, and the branded 404 passed.
 - [DONE — LOCAL] The unreleased truth-state patch now sits cleanly on top of `753de4d`; it does not regress the supporting-page metadata.
 
+## Branch policy — read before merging anything
+
+Four agents write to this repository (Claude, Codex, Cursor, and the owner's
+editors). Two rules follow from that:
+
+- **`cursor/pwa-install-cb61` must not be merged.** It is a superseded parallel
+  PWA attempt. It would add a second service worker on one origin, ship a
+  manifest below Android's installability icon threshold, and point `start_url`
+  at an instructions page. See the 2026-10-14 changelog entry for detail. Leave
+  it unmerged as history, or delete it — but do not merge it.
+- **Isolate edits with `git worktree`** rather than switching the shared
+  checkout's branch while another agent may be mid-task.
+- A diff with equal insertions and deletions across many files is almost always
+  CRLF churn, not work. Check `git diff --ignore-all-space` before committing it.
+  `.gitattributes` now prevents most of it. `git add --renormalize .` has still
+  not been run; do it as its own commit when no branch is pending.
+
 ## v0.3.2 — Installable progressive web app — LOCAL, UNRELEASED
 
 - [DONE — LOCAL] Added `manifest.webmanifest` (standalone display, site palette, `any` + `maskable` icons at 192 and 512), `sw.js`, and `offline.html`, and added all three to `.pages-manifest`.
