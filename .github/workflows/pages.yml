@@ -23,6 +23,17 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      # Runs before the artifact is assembled so a broken service worker blocks
+      # the deploy instead of shipping. The install handler no longer swallows
+      # precache errors, so a single PRECACHE url missing from .pages-manifest
+      # means no service worker registers at all -- silently. These tests catch
+      # that, and nothing else in the pipeline does.
+      #
+      # The glob is deliberate: bare `node --test` also scans _to_delete/ and
+      # picks up stale backup copies of these tests, which fail.
+      - name: Run service-worker and deploy-coverage tests
+        run: node --test tests/*.test.cjs
+
       - name: Verify and assemble public artifact
         run: python3 scripts/verify_site.py --build .pages-artifact
 
