@@ -1,5 +1,14 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-16 — READ-ONLY AUDIT — STAGE CATALOG IS TWO MONTHS BEHIND
+
+- Crawled the live site: 9 pages, 86 internal references followed, 18 unique targets, **0 broken**. Every page carries one `<main>`, one `<h1>`, a title, and image alternatives. `404.html` has no description or canonical, which is correct — it is an intentional `noindex` page the verifier exempts.
+- Re-verified the whole pipeline after another agent's line-ending renormalization landed: verifier passes, `sw.js` valid, tests 11/11, CI build simulation produces the same 54-file artifact. The committed blobs contain no CRLF, so the renormalization was correct; CRLF remaining in some working-tree files is harmless because git normalizes it on read, which is what `.gitattributes` was for.
+- **Found the one substantive gap.** A read-only check of the linked Suno account shows **four** public songs while the Stage lists **two**. The unlisted pair has been public since 2026-07-14 and 2026-08-20, and includes the account's pinned, most-liked track. This is not the August defect repeating: that was a false statement, and the Stage is evidence-scoped by design, listing only songs that passed owner story-boundary review. It is understatement by omission, and the review — not the policy — is what is overdue.
+- One unlisted song needs a general-audience boundary decision from the owner; the other appears to need nothing but approval. A dated review packet with both options, a recommendation, and a disclosed bias (Claude co-wrote one of the two lyrics) is held in the owner's private working archive and deliberately **not** committed here, because the decision material quotes lyrics and this repository is strictly general-audience.
+- Recorded a second owner-side gap: the Suno profile's public About discloses a fictional character but not an AI/synthetic origin, while two public voice profiles are visible. This is the same gap that keeps the profile cards withheld from Official Links.
+- No site, repository content, provider account, post, or generation was changed by this audit. The nine queued commits remain unpushed and the live site still serves the older `sophai-v1.0.0` worker.
+
 ## 2026-10-16 — LOCAL, UNPUSHED — ONE-TIME LINE-ENDING RENORMALIZATION
 
 - Ran the deferred `git add --renormalize .` as its own commit (`5d6c133`) now that no branch is pending (`chore/eol-…` and `codex/roadmap-sites-20260927` are fully contained in `main`; `cursor/pwa-install-cb61` stays unmerged by policy).
