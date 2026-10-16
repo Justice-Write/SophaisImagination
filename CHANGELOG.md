@@ -1,5 +1,9 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-16 — DOCS — README CURRENT STATE
+
+- README "Current state" still described the September truth-state patch as uncommitted and `753de4d` as the newest work. Replaced with the actual state: live is `753de4d`; local `main` holds the PWA, hardened worker, CI test gate, and renormalization, verified and unpushed; the owner push is the only remaining engineering step. No site file changed.
+
 ## 2026-10-16 — READ-ONLY AUDIT — STAGE CATALOG IS TWO MONTHS BEHIND
 
 - Crawled the live site: 9 pages, 86 internal references followed, 18 unique targets, **0 broken**. Every page carries one `<main>`, one `<h1>`, a title, and image alternatives. `404.html` has no description or canonical, which is correct — it is an intentional `noindex` page the verifier exempts.

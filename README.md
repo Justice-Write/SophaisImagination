@@ -6,8 +6,8 @@ Official general-audience site for Sophia, a fictional AI-created pop icon and m
 
 - Live at <https://sophais-imagination.com> with HTTPS enforced.
 - GitHub Pages deploys from `main` through GitHub Actions.
-- The current deployed source is commit `753de4d`; GitHub Pages run `35925135241` succeeded. A read-only check on 2026-09-24 matched all 45 HTTP-comparable public files byte-for-byte and passed apex/www redirects plus the branded 404. The Stage content base remains v0.3.0 commit `bb76480`; `753de4d` adds privacy and terms metadata.
-- A broader truth-state patch is complete locally but remains uncommitted and unpublished. Local, committed, pushed, deployed, and verified-live are intentionally separate states.
+- Live release: commit `753de4d` (v0.3.1), Pages run `35925135241`. The live site still serves the older `sophai-v1.0.0` service worker.
+- Local `main` carries the installable PWA, the hardened service worker, CI test gating, and line-ending normalization. It passes `node --test tests/*.test.cjs` and `scripts/verify_site.py --build .pages-artifact`, and is unpushed. The only remaining engineering step is the owner push via `_ops/push.ps1`. Local, committed, pushed, deployed, and verified-live are intentionally separate states.
 - Two songs completed the site's current owner-editor story-boundary review and remain in its public-safe record. Two additional public Suno songs and owner-published YouTube/social references still require identity, disclosure, ownership, and general-audience review; external profile cards are withheld in the next local artifact during that reconciliation.
 - The owner confirms the correct eligible plan was active when the reviewed songs were created. Dated plan and applicable-terms corroboration remains private commercial-release evidence; no billing details belong in this repository.
 - X has two owner-published music shares. C01 remains the next proposed identity/campaign post, not the account's first-ever post; API write authority and account health remain unverified.
