@@ -84,8 +84,8 @@ editors). Two rules follow from that:
   checkout's branch while another agent may be mid-task.
 - A diff with equal insertions and deletions across many files is almost always
   CRLF churn, not work. Check `git diff --ignore-all-space` before committing it.
-  `.gitattributes` now prevents most of it. `git add --renormalize .` has still
-  not been run; do it as its own commit when no branch is pending.
+  `.gitattributes` now prevents most of it. The one-time `git add --renormalize .`
+  was run on 2026-10-16 as its own commit (`5d6c133`, pure EOL, zero content change).
 
 ## v0.3.2 — Installable progressive web app — LOCAL, UNRELEASED
 

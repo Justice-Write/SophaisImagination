@@ -1,5 +1,13 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-16 — LOCAL, UNPUSHED — ONE-TIME LINE-ENDING RENORMALIZATION
+
+- Ran the deferred `git add --renormalize .` as its own commit (`5d6c133`) now that no branch is pending (`chore/eol-…` and `codex/roadmap-sites-20260927` are fully contained in `main`; `cursor/pwa-install-cb61` stays unmerged by policy).
+- Eight text files moved from CRLF to LF in the repository: `README.md`, `scripts/verify_site.py`, `sitemap.xml`, and five `docs/` files. `git diff --ignore-cr-at-eol` is empty, so there is no content change. `sitemap.xml` is the only deployed file affected; its served bytes change on the next deploy, which the health workflow will compare against the new commit.
+- Re-verified on the renormalized tree: `node --test tests/*.test.cjs` 11/11; `python3 scripts/verify_site.py --build .pages-artifact` passes.
+- Housekeeping: the commit left a `HEAD.lock` and ten `tmp_obj_*` files because file deletion is disabled in this session's mount. They were moved, not deleted, to `.git/stale-HEAD-lock-20261016` and `.git/stale-tmp-objs-20261016/`, so `_ops/push.ps1` will not trip on them. Delete those two paths at your convenience. A stray empty `.del-probe` left by another session was moved to the portfolio `_to_delete/`.
+- `main` is now eight commits ahead of `origin/main`. No push, deploy, account change, post, generation, or purchase was performed.
+
 ## 2026-10-16 — LOCAL, UNPUSHED — DEPLOY GATED ON TESTS
 
 - Simulated the GitHub Actions build job end to end locally before any push: `node --test tests/*.test.cjs` 11/11, then the exact CI command `python3 scripts/verify_site.py --build .pages-artifact`, producing a 54-file artifact that carries the hardened worker and leaks no repository-only file. The September PWA push failed the Pages verifier silently and sat dead for a day; this is the check that would have caught it.
