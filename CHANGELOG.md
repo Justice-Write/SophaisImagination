@@ -1,5 +1,14 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-16 — LOCAL, UNPUSHED — DEPLOY GATED ON TESTS
+
+- Simulated the GitHub Actions build job end to end locally before any push: `node --test tests/*.test.cjs` 11/11, then the exact CI command `python3 scripts/verify_site.py --build .pages-artifact`, producing a 54-file artifact that carries the hardened worker and leaks no repository-only file. The September PWA push failed the Pages verifier silently and sat dead for a day; this is the check that would have caught it.
+- **Closed the failure mode the hardening created.** Removing `.catch(() => self.skipWaiting())` turned a soft failure into a hard one: `cache.addAll()` now rejects on a single 404, install fails, and no service worker registers at all, with nothing in the UI saying so. Added `tests/precache-deploy-coverage.test.cjs`, which checks *deploy* coverage rather than repository existence — `sw.test.cjs` only verified that PRECACHE files exist in the repo, but `.pages-manifest` decides what ships, so a file could exist, pass, and still 404 in production.
+- The new test also enforces Android's installability bar (192 and 512 plus a maskable icon) and that exactly **one** service worker ships — which fails loudly if `cursor/pwa-install-cb61` is ever merged.
+- **The tests were never run in CI** (no `package.json`, no test step). `pages.yml` now runs them before assembling the artifact, so a broken worker blocks the deploy instead of shipping. The glob `tests/*.test.cjs` is deliberate: bare `node --test` also scans `_to_delete/` and fails on stale backup copies.
+- Each new assertion was verified by mutation rather than assumed. Adding an undeployed PRECACHE url, removing `offline.html` from `.pages-manifest`, dropping the maskable icon, and simulating the second-service-worker merge each fail the suite; all four guards fire, and the restored state passes 11/11.
+- Still unpushed. `main` is six commits ahead of `origin/main`; the live site continues to serve the older `sophai-v1.0.0` worker, confirmed by inspecting the served script.
+
 ## 2026-10-14 — LOCAL, UNPUSHED — BRANCH RECONCILIATION
 
 Four agents had left four divergent branches and `main` had not moved since
