@@ -1,6 +1,6 @@
 # Roadmap execution — 2026-09-27
 
-Status: local review candidate; not deployed or installed. No default-branch merge.
+Status (updated 2026-10-20): merged into local `main` on 2026-10-14; not pushed or deployed. The live site runs the earlier v0.3.2 worker from `4855423`. Current state lives in `STATUS-HANDOFF.md`.
 The portfolio-wide installation hold supersedes earlier install/push/deploy runbooks.
 
 ## Completed locally

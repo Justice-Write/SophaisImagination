@@ -6,8 +6,8 @@ Official general-audience site for Sophia, a fictional AI-created pop icon and m
 
 - Live at <https://sophais-imagination.com> with HTTPS enforced.
 - GitHub Pages deploys from `main` through GitHub Actions.
-- Live release: commit `753de4d` (v0.3.1), Pages run `35925135241`. The live site still serves the older `sophai-v1.0.0` service worker.
-- Local `main` carries the installable PWA, the hardened service worker, CI test gating, and line-ending normalization. It passes `node --test tests/*.test.cjs` and `scripts/verify_site.py --build .pages-artifact`, and is unpushed. The only remaining engineering step is the owner push via `_ops/push.ps1`. Local, committed, pushed, deployed, and verified-live are intentionally separate states.
+- Live release: commit `4855423` (v0.3.2, installable PWA), deployed 2026-09-26. Byte-verified 2026-10-20: live `sw.js`, `manifest.webmanifest`, `index.html` and `sitemap.xml` match that commit exactly. The live site serves the original `sophai-v1.0.0` service worker.
+- Local `main` adds the hardened service worker, CI test gating, and line-ending normalization on top of the live PWA. It passes `node --test tests/*.test.cjs` and `scripts/verify_site.py --build .pages-artifact`, and is unpushed. The only remaining engineering step is the owner push via `_ops/push.ps1`. Local, committed, pushed, deployed, and verified-live are intentionally separate states.
 - Two songs completed the site's current owner-editor story-boundary review and remain in its public-safe record. Two additional public Suno songs and owner-published YouTube/social references still require identity, disclosure, ownership, and general-audience review; external profile cards are withheld in the next local artifact during that reconciliation.
 - The owner confirms the correct eligible plan was active when the reviewed songs were created. Dated plan and applicable-terms corroboration remains private commercial-release evidence; no billing details belong in this repository.
 - X has two owner-published music shares. C01 remains the next proposed identity/campaign post, not the account's first-ever post; API write authority and account health remain unverified.
@@ -59,4 +59,4 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 - `.pages-manifest` and `.github/workflows/` — verified Pages artifact definition, deployment, and read-only live-health monitoring
 - `scripts/verify_site.py`, `scripts/check_live.py`, and `_ops/push.ps1` — local verification, live comparison, and guarded push helpers
 
-See `ROADMAP.md` for status and `CHANGELOG.md` for release history.
+Start with `STATUS-HANDOFF.md` (current state, working protocol, next actions). See `ROADMAP.md` for status and `CHANGELOG.md` for release history.

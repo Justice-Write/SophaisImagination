@@ -87,7 +87,9 @@ editors). Two rules follow from that:
   `.gitattributes` now prevents most of it. The one-time `git add --renormalize .`
   was run on 2026-10-16 as its own commit (`5d6c133`, pure EOL, zero content change).
 
-## v0.3.2 — Installable progressive web app — LOCAL, UNRELEASED
+## v0.3.2 — Installable progressive web app — SHIPPED 2026-09-26 (`4855423`)
+
+- [DONE] Live-verified 2026-09-27 (`docs/LIVE-PWA-VERIFICATION-2026-09-27.md`), 2026-10-14 (all PWA resources 200 with correct types; worker activated) and 2026-10-20 (live `sw.js`, `manifest.webmanifest`, `index.html`, `sitemap.xml` byte-match `4855423`). The 2026-09-27 hardening and later local commits are not yet deployed.
 
 - [DONE — LOCAL] Added `manifest.webmanifest` (standalone display, site palette, `any` + `maskable` icons at 192 and 512), `sw.js`, and `offline.html`, and added all three to `.pages-manifest`.
 - [DONE — LOCAL] Wired `<link rel="manifest">`, `theme-color`, apple/mobile web-app meta, touch icon, and a fault-tolerant service-worker registration into all eight public HTML pages.
@@ -96,7 +98,7 @@ editors). Two rules follow from that:
 - [DONE — LOCAL] Repaired a concurrent-process collision: `sw.js`, `manifest.webmanifest`, and `offline.html` had been written with unrendered `{{`/`}}` template braces. `sw.js` was invalid JavaScript, which means the service worker would never have installed and the PWA would have silently done nothing. Both files now pass `node --check` / `json.load`.
 - [DONE — LOCAL] Removed a duplicate icon set at `assets/img/icon-*.png`; the manifest's `/assets/icon-*.png` set is the single source.
 - [DONE] 2026-09-26: fixed the failing Pages deploy (unreferenced root `icon-192.png`/`icon-512.png` tripped the artifact verifier; removed).
-- [BLOCKED — OWNER] Install on the phone. Installing the PWA requires the owner to open `https://sophais-imagination.com` on the device and choose Install/Add to Home Screen; it cannot be pushed from here. It also requires the deploy to be live, so the owner push below comes first.
+- [BLOCKED — OWNER] Install on the phone. Installing the PWA requires the owner to open `https://sophais-imagination.com` on the device and choose Install/Add to Home Screen; it cannot be pushed from here. The PWA has been live since 2026-09-26, so this is available now; the portfolio installation hold still governs device installs.
 - [NOT APPLICABLE] APK packaging. This repository is a static site with no Android project, and this environment has no device access. If a Play Store listing is ever wanted, the route is Bubblewrap/TWA over this PWA plus Digital Asset Links — that is a separate, owner-gated decision, not a build step.
 
 ## v0.4 — Controlled distribution and catalog growth — BLOCKED — OWNER

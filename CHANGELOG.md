@@ -1,5 +1,12 @@
 # Changelog — sophais-imagination.com
 
+## 2026-10-20 — LOCAL, UNPUSHED — HANDOFF PROTOCOL AND LIVE-STATE CORRECTION
+
+- Added `STATUS-HANDOFF.md` at the repository root: the single, public-safe source of current state, working rules, next actions and a work log for any model or agent. Its protocol requires every agent to record intended work under ACTIVE WORK **before** starting and to update the file **after** finishing, so interrupted work is never invisible.
+- Added `AGENTS.md` and `CLAUDE.md` pointers so Codex, Cursor, Claude Code and other agent tools load the protocol automatically. All three files are repository-only; the verifier confirms none of them ship.
+- **Corrected a false live-state claim.** `README.md` said the live release was `753de4d` (v0.3.1), and `ROADMAP.md` and `ROADMAP-EXECUTION-2026-09-27.md` called the PWA unreleased. Hashes of live `sw.js`, `manifest.webmanifest`, `index.html` and `sitemap.xml`, fetched on 2026-10-20, match `4855423` exactly; `753de4d` has no service worker at all. v0.3.2 is marked SHIPPED 2026-09-26. The hardened worker and everything after it remain unpushed.
+- Tests 11/11; `verify_site.py --build .pages-artifact` passes; `git diff --check` clean. Touched files were backed up to `_to_delete/backups-2026-10-20-handoff/`. No push, deploy, account change, post, generation or purchase.
+
 ## 2026-10-16 — DOCS — README CURRENT STATE
 
 - README "Current state" still described the September truth-state patch as uncommitted and `753de4d` as the newest work. Replaced with the actual state: live is `753de4d`; local `main` holds the PWA, hardened worker, CI test gate, and renormalization, verified and unpushed; the owner push is the only remaining engineering step. No site file changed.
