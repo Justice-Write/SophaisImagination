@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-26 by Codex (release verification in progress)
+**Last updated:** 2026-10-26 by Codex (release deployed and live-verified)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- 2026-10-26 — Codex: verify, commit, push, deploy, and live-check the approved local release. Expected files: `404.html`, `AGENTS.md`, `CLAUDE.md`, `CHANGELOG.md`, `STATUS-HANDOFF.md`; release-state documentation will be updated after live verification.
+- None. (Release and live verification finished 2026-10-26.)
 
 ---
 
@@ -44,13 +44,13 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 ---
 
-## 3. Current state (verified 2026-10-20)
+## 3. Current state (verified 2026-10-26)
 
 | Item | State |
 | --- | --- |
-| **Live release** | `4855423` (v0.3.2, installable PWA), deployed 2026-09-26. Byte-verified 2026-10-20: live `sw.js`, `manifest.webmanifest`, `index.html` and `sitemap.xml` match this commit. Live worker cache is `sophai-v1.0.0`. |
-| **Local `main`** | 12 commits ahead of `origin/main` (11 unpushed commits plus this handoff commit). **Not pushed or deployed.** |
-| **What a push would deploy** | Hardened `sw.js` (cache `sophai-20260927`: a failed precache no longer replaces a working worker, cache cleanup is scoped to `sophai-*`, non-200 navigations aren't cached), LF `sitemap.xml`, and a CI test gate in `.github/workflows/pages.yml`. |
+| **Live release** | `bda5ab7` (installable PWA), deployed and verified 2026-10-26. All 52 public files match the commit; redirects and the branded 404 pass. Live worker cache is `sophai-20260927`. |
+| **Local `main`** | Matches `origin/main` at `bda5ab7`; release-state documentation is the only follow-up change pending this final documentation commit. |
+| **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
 | **Tests** | `node --test tests/*.test.cjs` → 11/11 pass. `python3 scripts/verify_site.py --build .pages-artifact` → passes. |
 | **Roadmap** | Every remaining item is **owner-gated** (see §6). No agent-only engineering work is open. |
 
@@ -96,13 +96,10 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Owner**
 
-1. **Push `main`** with `.\_ops\push.ps1` when the installation hold allows it. This deploys the hardened worker and CI gate.
-2. **Install the PWA on your phone:** open the site and choose *Add to Home Screen* or *Install*. It's available now, subject to the hold.
-3. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
-4. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
-5. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
-
-**Any agent, once the owner has pushed:** live-verify per §4, record the result here and in `CHANGELOG.md`, then mark the release shipped in `ROADMAP.md`.
+1. **Install the PWA on your phone:** open the site and choose *Add to Home Screen* or *Install*. The current hardened release is available now, subject to the installation hold.
+2. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
+3. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
+4. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
 
 **Any agent, now:** nothing beyond keeping this file accurate.
 
@@ -127,6 +124,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-10-26 — Codex:** with explicit owner approval, committed and pushed the accumulated verified release through `bda5ab7`; GitHub Pages run `40379497894` passed its build, 11-test gate, artifact verification, and deployment. `scripts/check_live.py` confirmed all 52 public files match HEAD, with redirects and the branded 404 passing.
 
 - 2026-10-24 — Codex CG-08: fixed the missing fictional/synthetic disclosure on the 404 page. Local Lighthouse homepage scores (performance/accessibility/best practices/SEO): 92/100/100/100; verifier and 11 tests pass, all 9 public HTML pages disclose. No push or deploy; existing owner changes preserved.
 

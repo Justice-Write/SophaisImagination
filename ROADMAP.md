@@ -87,16 +87,16 @@ editors). Two rules follow from that:
   `.gitattributes` now prevents most of it. The one-time `git add --renormalize .`
   was run on 2026-10-16 as its own commit (`5d6c133`, pure EOL, zero content change).
 
-## v0.3.2 — Installable progressive web app — SHIPPED 2026-09-26 (`4855423`)
+## v0.3.2 — Installable progressive web app — SHIPPED 2026-09-26; hardened 2026-10-26 (`bda5ab7`)
 
-- [DONE] Live-verified 2026-09-27 (`docs/LIVE-PWA-VERIFICATION-2026-09-27.md`), 2026-10-14 (all PWA resources 200 with correct types; worker activated) and 2026-10-20 (live `sw.js`, `manifest.webmanifest`, `index.html`, `sitemap.xml` byte-match `4855423`). The 2026-09-27 hardening and later local commits are not yet deployed.
+- [DONE] Live-verified 2026-09-27 (`docs/LIVE-PWA-VERIFICATION-2026-09-27.md`), 2026-10-14, 2026-10-20, and 2026-10-26. The hardened release at `bda5ab7` passed the CI test and artifact gates; all 52 public files match live, redirects pass, and the branded 404 includes the fictional/AI-created disclosure.
 
-- [DONE — LOCAL] Added `manifest.webmanifest` (standalone display, site palette, `any` + `maskable` icons at 192 and 512), `sw.js`, and `offline.html`, and added all three to `.pages-manifest`.
-- [DONE — LOCAL] Wired `<link rel="manifest">`, `theme-color`, apple/mobile web-app meta, touch icon, and a fault-tolerant service-worker registration into all eight public HTML pages.
-- [DONE — LOCAL] Service-worker caching strategy chosen for honesty, not just speed: navigations are **network-first** so a stale release claim can never be served while the reader is online; immutable same-origin assets are cache-first. The cache key is versioned (`sophai-v1.0.0`) and old caches are deleted on activate.
-- [DONE — LOCAL] `offline.html` carries the same AI-created/synthetic disclosure as every other page, warns that cached pages may be out of date, and is deliberately `noindex` and excluded from the sitemap. The verifier's `INTENTIONALLY_NOINDEX_HTML` set was extended to cover it.
-- [DONE — LOCAL] Repaired a concurrent-process collision: `sw.js`, `manifest.webmanifest`, and `offline.html` had been written with unrendered `{{`/`}}` template braces. `sw.js` was invalid JavaScript, which means the service worker would never have installed and the PWA would have silently done nothing. Both files now pass `node --check` / `json.load`.
-- [DONE — LOCAL] Removed a duplicate icon set at `assets/img/icon-*.png`; the manifest's `/assets/icon-*.png` set is the single source.
+- [DONE] Added `manifest.webmanifest` (standalone display, site palette, `any` + `maskable` icons at 192 and 512), `sw.js`, and `offline.html`, and added all three to `.pages-manifest`.
+- [DONE] Wired `<link rel="manifest">`, `theme-color`, apple/mobile web-app meta, touch icon, and a fault-tolerant service-worker registration into all public HTML pages.
+- [DONE] Service-worker caching strategy chosen for honesty, not just speed: navigations are **network-first** so a stale release claim can never be served while the reader is online; immutable same-origin assets are cache-first. The hardened cache key is `sophai-20260927`.
+- [DONE] `offline.html` carries the same AI-created/synthetic disclosure as every other page, warns that cached pages may be out of date, and is deliberately `noindex` and excluded from the sitemap. The verifier's `INTENTIONALLY_NOINDEX_HTML` set covers it.
+- [DONE] Repaired a concurrent-process collision that had left invalid template braces in the PWA files; the deployed release passes JavaScript, manifest, precache, and artifact checks.
+- [DONE] Removed a duplicate icon set at `assets/img/icon-*.png`; the manifest's `/assets/` icon set is the single source.
 - [DONE] 2026-09-26: fixed the failing Pages deploy (unreferenced root `icon-192.png`/`icon-512.png` tripped the artifact verifier; removed).
 - [BLOCKED — OWNER] Install on the phone. Installing the PWA requires the owner to open `https://sophais-imagination.com` on the device and choose Install/Add to Home Screen; it cannot be pushed from here. The PWA has been live since 2026-09-26, so this is available now; the portfolio installation hold still governs device installs.
 - [NOT APPLICABLE] APK packaging. This repository is a static site with no Android project, and this environment has no device access. If a Play Store listing is ever wanted, the route is Bubblewrap/TWA over this PWA plus Digital Asset Links — that is a separate, owner-gated decision, not a build step.

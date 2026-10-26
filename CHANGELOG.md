@@ -1,3 +1,9 @@
+## 2026-10-26 — DEPLOYED — HARDENED PWA AND COMPLETE PUBLIC DISCLOSURE
+
+- With explicit owner approval, pushed the accumulated verified `main` release through `bda5ab7`. GitHub Pages run `40379497894` passed the 11-test service-worker/deploy-coverage gate, public-artifact verification, upload, and deployment.
+- The hardened `sophai-20260927` worker, CI test gate, LF-normalized public files, and the 404 page's fictional/AI-created character disclosure are now live.
+- `python scripts/check_live.py` confirmed all 52 public files match HEAD; apex/www redirects and the branded 404 pass. No social post, provider-account change, generation, purchase, commerce activation, or device installation was performed.
+
 ## 2026-10-24 — CG-08 LOCAL SITE CHECKS
 
 - 2026-10-24 — Codex CG-08: fixed the missing fictional/synthetic disclosure on the 404 page. Local Lighthouse homepage scores (performance/accessibility/best practices/SEO): 92/100/100/100; verifier and 11 tests pass, all 9 public HTML pages disclose. No push or deploy; existing owner changes preserved.
