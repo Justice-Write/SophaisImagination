@@ -1,3 +1,7 @@
+## 2026-10-24 — CG-08 LOCAL SITE CHECKS
+
+- 2026-10-24 — Codex CG-08: fixed the missing fictional/synthetic disclosure on the 404 page. Local Lighthouse homepage scores (performance/accessibility/best practices/SEO): 92/100/100/100; verifier and 11 tests pass, all 9 public HTML pages disclose. No push or deploy; existing owner changes preserved.
+
 # Changelog — sophais-imagination.com
 
 ## 2026-10-20 — LOCAL, UNPUSHED — HANDOFF PROTOCOL AND LIVE-STATE CORRECTION

@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-20 by Claude (Cowork session)
+**Last updated:** 2026-10-26 by Codex (release verification in progress)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- None. (Last cleared 2026-10-20 by Claude, Cowork session, after the handoff/correction commit.)
+- 2026-10-26 — Codex: verify, commit, push, deploy, and live-check the approved local release. Expected files: `404.html`, `AGENTS.md`, `CLAUDE.md`, `CHANGELOG.md`, `STATUS-HANDOFF.md`; release-state documentation will be updated after live verification.
 
 ---
 
@@ -127,6 +127,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- 2026-10-24 — Codex CG-08: fixed the missing fictional/synthetic disclosure on the 404 page. Local Lighthouse homepage scores (performance/accessibility/best practices/SEO): 92/100/100/100; verifier and 11 tests pass, all 9 public HTML pages disclose. No push or deploy; existing owner changes preserved.
 
 - **2026-10-20 — Claude (Cowork):** created this handoff and the agent pointer files. Byte-verified that the live release is `4855423`, and corrected `README.md`, `ROADMAP.md` (v0.3.2 → SHIPPED) and `ROADMAP-EXECUTION-2026-09-27.md`, which had misreported it as `753de4d` or unreleased. Tests 11/11, verifier passes. Local commit only.
 - **2026-10-16 — Claude (separate session):** gated deploys on the tests in CI, added the precache deploy-coverage test, renormalized line endings to LF, audited the live site (0 broken links), found the Stage two songs behind the public catalog, and synced the README.
