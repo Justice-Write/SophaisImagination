@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-26 by Codex (release deployed and live-verified)
+**Last updated:** 2026-10-26 by Codex (post-release handoff reconciliation)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- None. (Release and live verification finished 2026-10-26.)
+- None. (Post-release handoff reconciliation finished 2026-10-26.)
 
 ---
 
@@ -48,15 +48,15 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 | Item | State |
 | --- | --- |
-| **Live release** | `bda5ab7` (installable PWA), deployed and verified 2026-10-26. All 52 public files match the commit; redirects and the branded 404 pass. Live worker cache is `sophai-20260927`. |
-| **Local `main`** | Matches `origin/main` at `bda5ab7`; release-state documentation is the only follow-up change pending this final documentation commit. |
+| **Live release** | Public artifact from `1d51e9d` (same 52 public files introduced through `bda5ab7`), deployed and verified 2026-10-26. All public files match HEAD; redirects and the branded 404 pass. Live worker cache is `sophai-20260927`. |
+| **Local `main`** | Matches `origin/main` at `1d51e9d` before this local-only handoff correction. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
 | **Tests** | `node --test tests/*.test.cjs` → 11/11 pass. `python3 scripts/verify_site.py --build .pages-artifact` → passes. |
 | **Roadmap** | Every remaining item is **owner-gated** (see §6). No agent-only engineering work is open. |
 
 **Branches**
 
-- `main`: current work, unpushed (see above).
+- `main`: release and final release-state documentation are pushed through `1d51e9d`; this handoff correction is local-only.
 - `codex/roadmap-sites-20260927`, `chore/eol-normalization-and-live-pwa-evidence`: fully merged into `main`. Safe to delete.
 - `codex/sophai-meta-20260923`: old (`753de4d`), contained in `main`. Safe to delete.
 - `cursor/pwa-install-cb61` (remote only): **DO NOT MERGE.** It's a superseded parallel PWA attempt: it would add a second service worker, its icons don't meet Android's installability requirements, and its `start_url` points to an instructions page. A test fails if it's ever merged.
@@ -124,6 +124,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-10-26 — Codex:** confirmed the active owner account has `repo` and `workflow` authorization, both Pages runs succeeded, and local/remote `main` matched at `1d51e9d`; corrected stale handoff commit references locally. No push or deployment.
 
 - **2026-10-26 — Codex:** with explicit owner approval, committed and pushed the accumulated verified release through `bda5ab7`; GitHub Pages run `40379497894` passed its build, 11-test gate, artifact verification, and deployment. `scripts/check_live.py` confirmed all 52 public files match HEAD, with redirects and the branded 404 passing.
 
