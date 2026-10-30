@@ -4,6 +4,7 @@
 - Verified a standalone focused app window at the expected origin and Windows Start registration under the expected product name. Optional taskbar, Start, desktop-shortcut and login-autostart choices were dismissed.
 - Added `docs/DESKTOP-PWA-VERIFICATION-2026-10-30.md` and reconciled the handoff/roadmap records. This is device acceptance, not a new public-content package; no APK/TWA was created and no Android install, provider/account change, post, generation, purchase or commerce action occurred.
 - Device-level offline launch was not independently exercised because no operating-system-wide network setting was changed. Existing worker/package tests remain separate source evidence and are not presented as device-offline acceptance.
+- Pushed the acceptance record as `c22b74c`. Pages run `41087015436` passed the 11-test and artifact gates; the post-deploy comparator confirmed all 52 HTTP-comparable files, redirects and branded 404 still match live.
 
 ## 2026-10-29 — DEPLOYED — PROJECT STOCKTAKE, HANDOFF, AND PACKAGE/PRIVACY BOUNDARY
 

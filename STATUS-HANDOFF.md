@@ -48,7 +48,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 | Item | State |
 | --- | --- |
-| **Live release** | Pages run `41021761803` for `c41c198` succeeded 2026-10-29. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
+| **Live release** | Pages run `41087015436` for the desktop-acceptance record `c22b74c` succeeded 2026-10-30. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
 | **Local `main`** | Fully pushed to `origin/main`; working tree clean after the final handoff commit. Use `git rev-parse HEAD` for the current repo-only documentation tip. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
 | **Tests/package** | `node --test tests/*.test.cjs` → 11/11 pass. The verifier assembles 54 allowlisted files (3,463,469 bytes); 52 are HTTP-comparable. |
@@ -57,7 +57,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Branches**
 
-- `main`: public content was introduced through `bda5ab7`; release-state and 2026-10-29 stocktake/data-boundary documentation are fully pushed. The final handoff commit is repository-only and does not change `.pages-manifest`.
+- `main`: public content was introduced through `bda5ab7`; release-state, package-boundary and Windows desktop-acceptance documentation are fully pushed through `c22b74c`. Later handoff-only commits do not change `.pages-manifest`.
 - `codex/roadmap-sites-20260927`, `chore/eol-normalization-and-live-pwa-evidence`: fully merged into `main`. Safe to delete.
 - `codex/sophai-meta-20260923`: old (`753de4d`), contained in `main`. Safe to delete.
 - `cursor/pwa-install-cb61` (remote only): **DO NOT MERGE.** It's a superseded parallel PWA attempt: it would add a second service worker, its icons don't meet Android's installability requirements, and its `start_url` points to an instructions page. A test fails if it's ever merged.
@@ -128,7 +128,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 ## 8. Work log (newest first)
 
-- **2026-10-30 — Codex:** with the owner's explicit approval, installed the live PWA through Microsoft Edge on Windows. The final dialog showed the expected app and publisher, the app launched in a standalone focused window at the expected HTTPS origin, and Windows Start registration read back the expected product name. Declined optional pin/shortcut/autostart conveniences. Added a public-safe acceptance receipt and reconciled roadmap/handoff records. No public page, package, account, provider, post, song, commerce setting or Android device changed; device-level offline launch remains unverified.
+- **2026-10-30 — Codex:** with the owner's explicit approval, installed the live PWA through Microsoft Edge on Windows. The final dialog showed the expected app and publisher, the app launched in a standalone focused window at the expected HTTPS origin, and Windows Start registration read back the expected product name. Declined optional pin/shortcut/autostart conveniences. Added a public-safe acceptance receipt and reconciled roadmap/handoff records in `c22b74c`; 11/11 tests, worker syntax, Python compilation, artifact verification and `git diff --check` passed. Pages run `41087015436` succeeded and all 52 HTTP-comparable files, redirects and branded 404 matched live. No public page, package, account, provider, post, song, commerce setting or Android device changed; device-level offline launch remains unverified.
 
 - **2026-10-29 — Codex:** audited the canonical repo, associated tasks/projects, live site, package contents, desktop/phone state and personal-data boundary. Preserved the existing Claude recovery edit; added the public-safe data-boundary and install checks; corrected stale handoffs/roadmap records; passed 11/11 tests, worker syntax, Python compilation, verifier and privacy scans; pushed `ab5d3b2` plus `bd00ed3`; Pages run `41021352301` succeeded; all 52 HTTP-comparable files, redirects and 404 matched live. No account/provider/content/commerce changes. Neither device target was installed at the baseline; installation remains separate.
 
