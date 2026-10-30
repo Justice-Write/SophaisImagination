@@ -7,6 +7,7 @@ Use this for every public site change. Built, approved, pushed, deployed, and li
 - [ ] Confirm the active repository and current branch.
 - [ ] Back up every touched existing file under `_to_delete/backups-YYYY-MM-DD-<scope>/`.
 - [ ] Confirm the change contains no private email, absolute local path, credentials, prompts, rejected assets, private lore, or non-general-audience material.
+- [ ] Reconcile the package/data boundary in `docs/DATA-BOUNDARIES.md`; never package the repository, browser profile, device inventory, private source archive, or account evidence.
 - [ ] Add every new public root file to `.pages-manifest`; keep public assets within its allowed directories.
 - [ ] Update page metadata, sitemap dates, `assets/provenance.json`, `ROADMAP.md`, and `CHANGELOG.md` when affected.
 - [ ] Run `python scripts/verify_site.py`.
@@ -34,6 +35,16 @@ Use this for every public site change. Built, approved, pushed, deployed, and li
 - [ ] Confirm the main-only live-health workflow remains enabled; its weekly check is read-only and does not replace release verification.
 - [ ] Perform keyboard and responsive smoke checks for any affected interaction.
 - [ ] Mark the release shipped in `ROADMAP.md` and `CHANGELOG.md` only after these checks pass.
+
+## Device installation (separate acceptance)
+
+- [ ] Treat the live HTTPS PWA as the install source. Do not create or sideload an APK from this static repository.
+- [ ] Record the target separately: Windows desktop, Android phone, or both. A passing Pages deployment does not prove installation.
+- [ ] Before install, confirm the live manifest, worker and 192/512 icons return successfully and the browser offers the expected app identity.
+- [ ] After install, launch it in a standalone app window, confirm its origin is `https://sophais-imagination.com`, and verify the expected icon/name.
+- [ ] Confirm the hardened worker activates and the offline fallback works without clearing unrelated browser/app data.
+- [ ] Verify the operating system/browser registration or Android WebAPK/shortcut identity; do not infer it from a home-screen icon alone.
+- [ ] Keep browser preferences, cookies, device serials, package inventories and other personal local state out of repository evidence.
 
 ## External-state reminder
 

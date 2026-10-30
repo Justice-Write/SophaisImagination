@@ -47,7 +47,7 @@ Status: ALL future work below is **[BLOCKED — OWNER]** to execute. Four public
 - **Free / no-build route (recommended):** the installed PWA. No Play account, no signing key, no store review, no update lag. Icons, offline page, and standalone display are already in place.
 - **Store route (only on owner decision):** Bubblewrap (`@bubblewrap/cli`) or PWABuilder generates a Trusted Web Activity wrapper around the same origin. Requirements the executing model must not skip: a Play Console account, an upload signing key the owner controls and backs up, a `.well-known/assetlinks.json` file served from the apex with that key's SHA-256 fingerprint (without it the app shows a browser address bar), and a Play data-safety declaration.
 - **Store-listing honesty rules carry over unchanged:** the listing must state that Sophia is a fictional AI-created character and that the imagery is synthetic. Do not claim releases, results, sponsors, or collaborations that cannot be verified. Do not imply she is human.
-- **Cannot be done from the assistant environment:** no Android SDK, no `adb`, no device access. Both the install and any APK build are owner-side actions.
+- **Current device boundary (verified 2026-10-29):** an authorized Android device and its Chrome handler were visible to the audit, but no Sophia WebAPK/shortcut was installed and no phone-mirroring UI was available. The standards-based PWA install still requires the on-device browser action. Desktop Edge is an independently valid install target. Record each target separately; never infer an install from a passing live check.
 
 ## Handoff protocol
 

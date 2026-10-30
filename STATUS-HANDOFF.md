@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-26 by Codex (post-release handoff reconciliation)
+**Last updated:** 2026-10-29 by Codex (stocktake/release reconciliation in progress)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- None. (Post-release handoff reconciliation finished 2026-10-26.)
+- **2026-10-29 — Codex (current root task):** reconcile cross-chat/project state; audit release, install, and data boundaries; update public-safe documentation and handoff; verify, commit, push, deploy, live-check, and prepare authorized device installation. Expected files: `STATUS-HANDOFF.md`, `README.md`, `ROADMAP.md`, `CHANGELOG.md`, and public-safe operations/data documentation. Preserve the existing Claude recovery-sweep edits.
 
 ---
 
@@ -44,14 +44,15 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 ---
 
-## 3. Current state (verified 2026-10-26)
+## 3. Current state (verified 2026-10-29)
 
 | Item | State |
 | --- | --- |
-| **Live release** | Public artifact from `1d51e9d` (same 52 public files introduced through `bda5ab7`), deployed and verified 2026-10-26. All public files match HEAD; redirects and the branded 404 pass. Live worker cache is `sophai-20260927`. |
-| **Local `main`** | Matches `origin/main` at `1d51e9d` before this local-only handoff correction. |
+| **Live release** | Public artifact from `1d51e9d` (same 52 HTTP-comparable public files introduced through `bda5ab7`) was reverified 2026-10-29. All 52 files match; redirects and branded 404 pass. Live worker cache is `sophai-20260927`. |
+| **Local `main`** | Baseline `ab5d3b2`, one docs commit ahead of `origin/main`, plus the intentionally active stocktake/documentation work listed above. Do not call the tree clean until that ACTIVE WORK entry is cleared. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
-| **Tests** | `node --test tests/*.test.cjs` → 11/11 pass. `python3 scripts/verify_site.py --build .pages-artifact` → passes. |
+| **Tests/package** | `node --test tests/*.test.cjs` → 11/11 pass. The verifier assembles 54 allowlisted files (3,463,469 bytes); 52 are HTTP-comparable. |
+| **Installation** | Install-ready but not installed at the 2026-10-29 baseline on Windows or the connected Android phone. Desktop Edge is the lowest-risk available target; phone install requires on-device Chrome interaction. |
 | **Roadmap** | Every remaining item is **owner-gated** (see §6). No agent-only engineering work is open. |
 
 **Branches**
@@ -114,6 +115,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 | `README.md` | Overview, stack, deploy flow, content rules |
 | `docs/RELEASE-CHECKLIST.md` | Step-by-step release and live-verification checklist |
 | `docs/LIVE-PWA-VERIFICATION-2026-09-27.md` | Live PWA evidence record |
+| `docs/DATA-BOUNDARIES.md` | Runtime/package inventory and private/personal-data separation |
 | `.pages-manifest` | Deploy allowlist |
 | `sw.js` / `manifest.webmanifest` / `offline.html` | PWA |
 | `scripts/verify_site.py` / `scripts/check_live.py` | Artifact verifier / live comparison |
@@ -124,6 +126,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-10-29 — Claude (Cowork recovery sweep after a ChatGPT history loss):** read-only audit. Working tree clean, no stashes, no uncommitted work; `main` is 1 commit ahead of `origin/main` (`ab5d3b2`, docs only) and needs the owner's push. Nothing else in this repo was at risk. Private project context (music, platform lanes, related ventures) is tracked outside this public repo.
 
 - **2026-10-26 — Codex:** confirmed the active owner account has `repo` and `workflow` authorization, both Pages runs succeeded, and local/remote `main` matched at `1d51e9d`; corrected stale handoff commit references locally. No push or deployment.
 

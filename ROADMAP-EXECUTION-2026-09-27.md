@@ -1,18 +1,23 @@
 # Roadmap execution — 2026-09-27
 
-Status (updated 2026-10-20): merged into local `main` on 2026-10-14; not pushed or deployed. The live site runs the earlier v0.3.2 worker from `4855423`. Current state lives in `STATUS-HANDOFF.md`.
-The portfolio-wide installation hold supersedes earlier install/push/deploy runbooks.
+Reconciled 2026-10-29. This is the execution record for the September PWA milestone; `STATUS-HANDOFF.md` is the current source of truth.
 
-## Completed locally
+## Shipped result
 
-Repaired offline worker failure handling and app-scoped cache cleanup; retained source/artifact allowlist and synthetic disclosure.
+The installable PWA went live on 2026-09-26 and the hardened release shipped on 2026-10-26. Public artifact changes were introduced through `bda5ab7`; release-state documentation was pushed through `1d51e9d`. The site uses the hardened `sophai-20260927` worker, network-first navigations, scoped cache cleanup, a CI test gate, an explicit Pages allowlist, and fictional/AI-created disclosure on every public HTML page.
 
-## Verification
+## 2026-10-29 verification baseline
 
-python scripts/verify_site.py --build .pages-artifact passes; node --test tests/sw.test.cjs: 7/7.
+- `node --test tests/*.test.cjs`: 11/11 pass.
+- `node --check sw.js`: pass.
+- `python scripts/verify_site.py --build .pages-artifact`: pass; 54 allowlisted files, 3,463,469 bytes.
+- `python scripts/check_live.py`: all 52 HTTP-comparable public files match; redirects and branded 404 pass.
+- Current deploy artifact scan: no detected credentials, personal email, local path, private lore, unrelated-brand reference or source-workflow metadata.
 
-## Remaining dependencies and acceptance
+See `docs/DATA-BOUNDARIES.md` for the runtime/private-data split. The PWA is the package; APK/TWA work is not part of this milestone.
 
-Exact identity/campaign/post/visual approvals; correct provider authority and intended social destinations; rights/master records for commercial use; a monitored public alias before contact intake. Content generation, participation, commerce and distribution remain gated by the existing ROADMAP. Device acceptance waits for the portfolio installation gate and authorized deployment.
+## Remaining acceptance and owner decisions
 
-A passing local test is not editorial approval, provider authorization, physical-device acceptance or live-release evidence.
+Desktop and phone installations are separate from build/deployment evidence. At the baseline audit, neither target had Sophia installed. Desktop Edge is the lowest-risk available install path; the connected Android phone requires on-device Chrome interaction because no phone-mirroring UI is installed.
+
+Identity/campaign/post/visual approvals, the two-song Stage decision, provider disclosure/account changes, commercial rights records, further generation, distribution and commerce remain separate gates. A passing local test, deployment or device install is not editorial, provider, rights or commercial acceptance.

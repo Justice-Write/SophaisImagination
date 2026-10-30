@@ -1,3 +1,10 @@
+## 2026-10-29 — LOCAL — PROJECT STOCKTAKE, HANDOFF, AND PACKAGE/PRIVACY BOUNDARY
+
+- Reconciled the canonical repository, live Pages state, related project records and associated task history. The October 26 release remains healthy: 11/11 tests pass, the artifact verifier assembles 54 allowlisted files (3,463,469 bytes), and all 52 HTTP-comparable files plus redirects and the branded 404 match live.
+- Added `docs/DATA-BOUNDARIES.md` and release-checklist controls that define the PWA as the installable product and explicitly exclude Git history, maintenance tooling, backups, browser/device state, account records, private creative material and personal data.
+- Corrected stale dated handoffs, PWA execution notes and device-capability wording. The Android phone audit found no Sophia install; the native APK/TWA lane remains not applicable unless separately approved.
+- Preserved the existing 2026-10-29 Claude recovery-sweep correction in `STATUS-HANDOFF.md`. No public page/media content, provider account, social post, generated song or commerce setting was changed; no private source record entered the public repository or artifact.
+
 ## 2026-10-26 — LOCAL — POST-RELEASE HANDOFF RECONCILIATION
 
 - Confirmed the active owner account has the repository and workflow permissions required by the guarded release path. Both 2026-10-26 Pages runs completed successfully, and local/remote `main` matched at `1d51e9d` before this documentation-only correction.

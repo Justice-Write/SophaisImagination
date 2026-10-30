@@ -1,6 +1,8 @@
 # Sophia's Imagination — Public-safe handoff
 
-**Prepared:** 2026-08-09 · **Updated:** 2026-09-24
+**Prepared:** 2026-08-09 · **Reconciled:** 2026-10-29
+
+> This file preserves the original public handoff and project intent. For current branch, release, installation and next-action truth, read the repository-root `STATUS-HANDOFF.md` first. It supersedes stale state in any dated handoff.
 
 This repository is public. Keep this handoff limited to information safe to publish. Private account records, source paths, prompts, rejected work, operator details, and unpublished lore belong in the owner's private working archive.
 
@@ -26,12 +28,12 @@ The v0.3.0 site is live at <https://sophais-imagination.com> on GitHub Pages wit
 | Provenance | `/provenance.html` | Public-safe derivative hashes and the limits of what those hashes prove |
 | Privacy / Terms / 404 | respective HTML paths | Static supporting pages |
 
-The current deployed source is commit `753de4d`; Pages run `35925135241`
-succeeded. On 2026-09-24, all 45 HTTP-comparable files matched that commit
-byte-for-byte; internal references, key assets, apex/www redirects, robots,
-sitemap, and the branded 404 passed. The Stage content base remains v0.3.0
-commit `bb76480`; `753de4d` adds privacy and terms metadata. A broader
-truth-state patch is complete locally but remains uncommitted and unpublished.
+The hardened PWA release was introduced through `bda5ab7` and the final
+release-state documentation was pushed at `1d51e9d` on 2026-10-26. Pages runs
+`40379497894` and `40379781786` succeeded. The 2026-10-29 baseline audit found
+54 allowlisted artifact files; all 52 HTTP-comparable files matched live, and
+the redirects plus branded 404 passed. See `STATUS-HANDOFF.md` for any release
+after that baseline and `docs/DATA-BOUNDARIES.md` for the install/package split.
 
 ## 3. Open owner decisions
 

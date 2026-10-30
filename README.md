@@ -31,6 +31,12 @@ The repository is already configured. Normal release flow:
 
 The Pages artifact is controlled by `.pages-manifest`. Any new public root file must be added there. Public assets must remain under the explicitly allowed `assets/` directories and pass the verifier.
 
+## Package and data boundary
+
+This product is the live static PWA; it is not an APK, desktop executable, server, account system, or copy of the whole repository. The generated `.pages-artifact` contains only the files permitted by `.pages-manifest`. Git history, workflows, tests, scripts, Markdown documentation, backups, private source masters, prompts, account records, device/browser state, and personal data are not part of the installed app.
+
+See `docs/DATA-BOUNDARIES.md` for the runtime inventory, excluded private/personal data classes, and the verification required before a desktop or phone installation is accepted.
+
 ## Content rules
 
 - Always disclose Sophia as a fictional AI-created character. Never imply humanity, consciousness, physical presence, travel, events, product use, or real-world relationships.
@@ -54,6 +60,7 @@ The Pages artifact is controlled by `.pages-manifest`. Any new public root file 
 - `docs/PARTICIPATION-LOOP-PROTOCOL.md` — evidence rules for the first real audience choice
 - `docs/COMMERCE-READINESS.md` — print, music, collaboration, provider, and money gates
 - `docs/DELEGATION-BRIEFS.md` — owner-gated catalog-growth briefs
+- `docs/DATA-BOUNDARIES.md` — PWA/runtime inventory and private/personal-data separation rules
 - `REVENUE-MODEL.md` — proposed six-year commercial sequence and evidence thresholds; not an activation plan
 - `ROADMAP-PROGRESS-2026-09-24.md` — dated local/live reconciliation and smallest next owner action
 - `.pages-manifest` and `.github/workflows/` — verified Pages artifact definition, deployment, and read-only live-health monitoring
