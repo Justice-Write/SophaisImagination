@@ -99,6 +99,7 @@ editors). Two rules follow from that:
 - [DONE] Removed a duplicate icon set at `assets/img/icon-*.png`; the manifest's `/assets/` icon set is the single source.
 - [DONE] 2026-09-26: fixed the failing Pages deploy (unreferenced root `icon-192.png`/`icon-512.png` tripped the artifact verifier; removed).
 - [DONE] The 2026-10-29 package/privacy audit confirmed that `.pages-manifest` produces a 54-file, 3,463,469-byte public artifact; 52 files are HTTP-comparable. Repo history, docs, tests, workflows, backups, private creative/rights records, browser profiles and device state are not part of the installed PWA. The reconciliation shipped through `bd00ed3` / Pages run `41021352301`; see `docs/DATA-BOUNDARIES.md`.
+- [DONE — DEVICE, 2026-10-30] Installed from the live HTTPS origin through Microsoft Edge on Windows. The final dialog showed the expected app/publisher, the app launched in a standalone window at the expected origin, and Windows Start registration has the expected product name. Optional pin/shortcut/autostart choices were dismissed. Device-level offline launch was not independently exercised; see `docs/DESKTOP-PWA-VERIFICATION-2026-10-30.md`.
 - [BLOCKED — OWNER] Install on the phone. The 2026-10-29 device audit found an authorized Android phone with Chrome handling the live origin, but no Sophia WebAPK/shortcut and no phone-mirroring UI. Installation still requires the owner to open `https://sophais-imagination.com` on the device and choose Install/Add to Home Screen, then verify standalone/offline behavior.
 - [NOT APPLICABLE] APK packaging. This repository is a static site with no Android project. If a Play Store listing is ever wanted, the route is Bubblewrap/TWA over this PWA plus Digital Asset Links — that is a separate, owner-gated decision, not a build step.
 
@@ -149,4 +150,4 @@ Internal audience and revenue targets remain private owner-review inputs, not pu
 
 ## Execution update — September 27, 2026
 
-See `ROADMAP-EXECUTION-2026-09-27.md` for the current implementation, tests and residual dependencies. Older install/deploy instructions are historical; the portfolio installation hold remains in force.
+See `ROADMAP-EXECUTION-2026-09-27.md` for the current implementation, tests and residual dependencies. Older install/deploy instructions are historical. The 2026-10-30 Windows action was separately authorized and completed; the portfolio installation hold remains in force for every new target or install action.

@@ -1,6 +1,6 @@
 # Roadmap execution — 2026-09-27
 
-Reconciled 2026-10-29. This is the execution record for the September PWA milestone; `STATUS-HANDOFF.md` is the current source of truth.
+Reconciled 2026-10-30. This is the execution record for the September PWA milestone; `STATUS-HANDOFF.md` is the current source of truth.
 
 ## Shipped result
 
@@ -19,6 +19,8 @@ See `docs/DATA-BOUNDARIES.md` for the runtime/private-data split. The PWA is the
 
 ## Remaining acceptance and owner decisions
 
-Desktop and phone installations are separate from build/deployment evidence. At the baseline audit, neither target had Sophia installed. Desktop Edge is the lowest-risk available install path; the connected Android phone requires on-device Chrome interaction because no phone-mirroring UI is installed.
+Desktop and phone installations are separate from build/deployment evidence. The owner-authorized Windows Edge installation completed on 2026-10-30: the expected app/publisher was shown, the app launched in a standalone window at the expected HTTPS origin, and Windows Start registration has the expected product name. Optional pin/shortcut/autostart choices were dismissed. Device-level offline launch was not independently exercised, so it remains unverified rather than inferred from source tests. See `docs/DESKTOP-PWA-VERIFICATION-2026-10-30.md`.
+
+The Android phone remains a separate owner action requiring on-device Chrome interaction and its own standalone/offline acceptance record.
 
 Identity/campaign/post/visual approvals, the two-song Stage decision, provider disclosure/account changes, commercial rights records, further generation, distribution and commerce remain separate gates. A passing local test, deployment or device install is not editorial, provider, rights or commercial acceptance.

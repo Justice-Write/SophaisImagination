@@ -1,3 +1,10 @@
+## 2026-10-30 — DEVICE ACCEPTANCE — WINDOWS EDGE PWA
+
+- With the owner's explicit approval for this target, installed the live PWA from `https://sophais-imagination.com/` through Microsoft Edge on Windows. The final dialog identified **Sophia's Imagination** and publisher **sophais-imagination.com**.
+- Verified a standalone focused app window at the expected origin and Windows Start registration under the expected product name. Optional taskbar, Start, desktop-shortcut and login-autostart choices were dismissed.
+- Added `docs/DESKTOP-PWA-VERIFICATION-2026-10-30.md` and reconciled the handoff/roadmap records. This is device acceptance, not a new public-content package; no APK/TWA was created and no Android install, provider/account change, post, generation, purchase or commerce action occurred.
+- Device-level offline launch was not independently exercised because no operating-system-wide network setting was changed. Existing worker/package tests remain separate source evidence and are not presented as device-offline acceptance.
+
 ## 2026-10-29 — DEPLOYED — PROJECT STOCKTAKE, HANDOFF, AND PACKAGE/PRIVACY BOUNDARY
 
 - Reconciled the canonical repository, live Pages state, related project records and associated task history. The October 26 release remains healthy: 11/11 tests pass, the artifact verifier assembles 54 allowlisted files (3,463,469 bytes), and all 52 HTTP-comparable files plus redirects and the branded 404 match live.

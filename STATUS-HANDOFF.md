@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-29 by Codex (stocktake/release reconciliation complete; device install pending)
+**Last updated:** 2026-10-30 by Codex (Windows desktop PWA installed and verified; Android remains separate)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- None. (The release/data unit finished 2026-10-29. A device-install action remains separate and must be logged when it begins.)
+- None. (The owner-authorized Windows desktop installation is complete. New device targets still require their own approval and acceptance record.)
 
 ---
 
@@ -44,15 +44,15 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 ---
 
-## 3. Current state (verified 2026-10-29)
+## 3. Current state (verified 2026-10-30)
 
 | Item | State |
 | --- | --- |
-| **Live release** | Pages run `41021352301` for `bd00ed3` succeeded 2026-10-29. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
+| **Live release** | Pages run `41021761803` for `c41c198` succeeded 2026-10-29. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
 | **Local `main`** | Fully pushed to `origin/main`; working tree clean after the final handoff commit. Use `git rev-parse HEAD` for the current repo-only documentation tip. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
 | **Tests/package** | `node --test tests/*.test.cjs` → 11/11 pass. The verifier assembles 54 allowlisted files (3,463,469 bytes); 52 are HTTP-comparable. |
-| **Installation** | Install-ready but not installed at the 2026-10-29 baseline on Windows or the connected Android phone. Desktop Edge is the lowest-risk available target; phone install requires on-device Chrome interaction. |
+| **Installation** | **Windows accepted 2026-10-30:** Edge installed the live PWA, launched it in a standalone app window at the expected origin, and Windows Start registration has the expected product name. Optional pin/autostart choices were dismissed. Device-level offline launch was not independently exercised. Android remains uninstalled and requires on-device Chrome interaction. |
 | **Roadmap** | Every remaining item is **owner-gated** (see §6). No agent-only engineering work is open. |
 
 **Branches**
@@ -97,12 +97,12 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Owner**
 
-1. **Install the PWA:** the 2026-10-29 baseline found no Windows or phone install. Desktop Edge is ready and is the lowest-risk target; phone installation requires opening the site in Chrome and choosing *Add to Home Screen* or *Install*. Verify each target separately.
+1. **Optional Android installation:** Windows desktop acceptance is complete. The Android target remains separate; it requires opening the site in Chrome and choosing *Add to Home Screen* or *Install*, then verifying standalone and offline behavior on that device.
 2. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
 3. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
 4. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
 
-**Any agent, now:** no unblocked code or release work. A device-install session may proceed only with the owner's confirmation for the target and must record standalone/offline acceptance without exposing local device identifiers.
+**Any agent, now:** no unblocked code or release work. A new device-install session may proceed only with the owner's confirmation for that target and must record standalone/offline acceptance without exposing local device identifiers. Do not call Windows offline acceptance complete from the 2026-10-30 receipt.
 
 ---
 
@@ -115,6 +115,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 | `README.md` | Overview, stack, deploy flow, content rules |
 | `docs/RELEASE-CHECKLIST.md` | Step-by-step release and live-verification checklist |
 | `docs/LIVE-PWA-VERIFICATION-2026-09-27.md` | Live PWA evidence record |
+| `docs/DESKTOP-PWA-VERIFICATION-2026-10-30.md` | Windows installation and standalone-launch acceptance record |
 | `docs/DATA-BOUNDARIES.md` | Runtime/package inventory and private/personal-data separation |
 | `.pages-manifest` | Deploy allowlist |
 | `sw.js` / `manifest.webmanifest` / `offline.html` | PWA |
@@ -126,6 +127,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-10-30 — Codex:** with the owner's explicit approval, installed the live PWA through Microsoft Edge on Windows. The final dialog showed the expected app and publisher, the app launched in a standalone focused window at the expected HTTPS origin, and Windows Start registration read back the expected product name. Declined optional pin/shortcut/autostart conveniences. Added a public-safe acceptance receipt and reconciled roadmap/handoff records. No public page, package, account, provider, post, song, commerce setting or Android device changed; device-level offline launch remains unverified.
 
 - **2026-10-29 — Codex:** audited the canonical repo, associated tasks/projects, live site, package contents, desktop/phone state and personal-data boundary. Preserved the existing Claude recovery edit; added the public-safe data-boundary and install checks; corrected stale handoffs/roadmap records; passed 11/11 tests, worker syntax, Python compilation, verifier and privacy scans; pushed `ab5d3b2` plus `bd00ed3`; Pages run `41021352301` succeeded; all 52 HTTP-comparable files, redirects and 404 matched live. No account/provider/content/commerce changes. Neither device target was installed at the baseline; installation remains separate.
 
