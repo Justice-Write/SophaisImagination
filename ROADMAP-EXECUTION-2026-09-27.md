@@ -13,6 +13,7 @@ The installable PWA went live on 2026-09-26 and the hardened release shipped on 
 - `python scripts/verify_site.py --build .pages-artifact`: pass; 54 allowlisted files, 3,463,469 bytes.
 - `python scripts/check_live.py`: all 52 HTTP-comparable public files match; redirects and branded 404 pass.
 - Current deploy artifact scan: no detected credentials, personal email, local path, private lore, unrelated-brand reference or source-workflow metadata.
+- Documentation/package-boundary reconciliation `bd00ed3`: Pages run `41021352301` succeeded; the post-deploy live comparison passed.
 
 See `docs/DATA-BOUNDARIES.md` for the runtime/private-data split. The PWA is the package; APK/TWA work is not part of this milestone.
 

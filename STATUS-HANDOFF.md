@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-29 by Codex (stocktake/release reconciliation in progress)
+**Last updated:** 2026-10-29 by Codex (stocktake/release reconciliation complete; device install pending)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- **2026-10-29 — Codex (current root task):** reconcile cross-chat/project state; audit release, install, and data boundaries; update public-safe documentation and handoff; verify, commit, push, deploy, live-check, and prepare authorized device installation. Expected files: `STATUS-HANDOFF.md`, `README.md`, `ROADMAP.md`, `CHANGELOG.md`, and public-safe operations/data documentation. Preserve the existing Claude recovery-sweep edits.
+- None. (The release/data unit finished 2026-10-29. A device-install action remains separate and must be logged when it begins.)
 
 ---
 
@@ -48,8 +48,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 | Item | State |
 | --- | --- |
-| **Live release** | Public artifact from `1d51e9d` (same 52 HTTP-comparable public files introduced through `bda5ab7`) was reverified 2026-10-29. All 52 files match; redirects and branded 404 pass. Live worker cache is `sophai-20260927`. |
-| **Local `main`** | Baseline `ab5d3b2`, one docs commit ahead of `origin/main`, plus the intentionally active stocktake/documentation work listed above. Do not call the tree clean until that ACTIVE WORK entry is cleared. |
+| **Live release** | Pages run `41021352301` for `bd00ed3` succeeded 2026-10-29. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
+| **Local `main`** | Fully pushed to `origin/main`; working tree clean after the final handoff commit. Use `git rev-parse HEAD` for the current repo-only documentation tip. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
 | **Tests/package** | `node --test tests/*.test.cjs` → 11/11 pass. The verifier assembles 54 allowlisted files (3,463,469 bytes); 52 are HTTP-comparable. |
 | **Installation** | Install-ready but not installed at the 2026-10-29 baseline on Windows or the connected Android phone. Desktop Edge is the lowest-risk available target; phone install requires on-device Chrome interaction. |
@@ -57,7 +57,7 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Branches**
 
-- `main`: release and final release-state documentation are pushed through `1d51e9d`; this handoff correction is local-only.
+- `main`: public content was introduced through `bda5ab7`; release-state and 2026-10-29 stocktake/data-boundary documentation are fully pushed. The final handoff commit is repository-only and does not change `.pages-manifest`.
 - `codex/roadmap-sites-20260927`, `chore/eol-normalization-and-live-pwa-evidence`: fully merged into `main`. Safe to delete.
 - `codex/sophai-meta-20260923`: old (`753de4d`), contained in `main`. Safe to delete.
 - `cursor/pwa-install-cb61` (remote only): **DO NOT MERGE.** It's a superseded parallel PWA attempt: it would add a second service worker, its icons don't meet Android's installability requirements, and its `start_url` points to an instructions page. A test fails if it's ever merged.
@@ -97,12 +97,12 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Owner**
 
-1. **Install the PWA on your phone:** open the site and choose *Add to Home Screen* or *Install*. The current hardened release is available now, subject to the installation hold.
+1. **Install the PWA:** the 2026-10-29 baseline found no Windows or phone install. Desktop Edge is ready and is the lowest-risk target; phone installation requires opening the site in Chrome and choosing *Add to Home Screen* or *Install*. Verify each target separately.
 2. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
 3. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
 4. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
 
-**Any agent, now:** nothing beyond keeping this file accurate.
+**Any agent, now:** no unblocked code or release work. A device-install session may proceed only with the owner's confirmation for the target and must record standalone/offline acceptance without exposing local device identifiers.
 
 ---
 
@@ -126,6 +126,8 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-10-29 — Codex:** audited the canonical repo, associated tasks/projects, live site, package contents, desktop/phone state and personal-data boundary. Preserved the existing Claude recovery edit; added the public-safe data-boundary and install checks; corrected stale handoffs/roadmap records; passed 11/11 tests, worker syntax, Python compilation, verifier and privacy scans; pushed `ab5d3b2` plus `bd00ed3`; Pages run `41021352301` succeeded; all 52 HTTP-comparable files, redirects and 404 matched live. No account/provider/content/commerce changes. Neither device target was installed at the baseline; installation remains separate.
 
 - **2026-10-29 — Claude (Cowork recovery sweep after a ChatGPT history loss):** read-only audit. Working tree clean, no stashes, no uncommitted work; `main` is 1 commit ahead of `origin/main` (`ab5d3b2`, docs only) and needs the owner's push. Nothing else in this repo was at risk. Private project context (music, platform lanes, related ventures) is tracked outside this public repo.
 

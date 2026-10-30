@@ -6,7 +6,7 @@ Official general-audience site for Sophia, a fictional AI-created pop icon and m
 
 - Live at <https://sophais-imagination.com> with HTTPS enforced.
 - GitHub Pages deploys from `main` through GitHub Actions.
-- Live release: commit `bda5ab7` (installable PWA), deployed and verified 2026-10-26. All 52 public files match the committed release; redirects and the branded 404 pass. The live site serves the hardened `sophai-20260927` service worker.
+- Latest verified Pages deployment: `bd00ed3`, run `41021352301`, on 2026-10-29. It carries the same 52 HTTP-comparable public files introduced through the hardened PWA release at `bda5ab7`; all match live, redirects and the branded 404 pass, and the site serves the `sophai-20260927` worker.
 - The release includes service-worker hardening, CI test gating, LF-normalized public files, and synthetic-character disclosure on every public HTML page. Local, committed, pushed, deployed, and verified-live remain intentionally separate states.
 - Two songs completed the site's current owner-editor story-boundary review and remain in its public-safe record. Two additional public Suno songs and owner-published YouTube/social references still require identity, disclosure, ownership, and general-audience review; external profile cards are withheld in the next local artifact during that reconciliation.
 - The owner confirms the correct eligible plan was active when the reviewed songs were created. Dated plan and applicable-terms corroboration remains private commercial-release evidence; no billing details belong in this repository.
