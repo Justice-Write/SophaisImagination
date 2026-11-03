@@ -146,3 +146,17 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 - **2026-09-27 — Codex / Claude:** hardened `sw.js` and added `tests/sw.test.cjs`; added `.gitattributes` and the live PWA verification record.
 - **2026-09-26:** fixed the failing Pages deploy. The installable PWA went live at `4855423`.
 - Earlier history: see `CHANGELOG.md` (v0.1 launched 2026-08-08).
+
+## Security qualification and source backup — 2026-11-02
+
+### Current source checkpoint
+Owner explicitly authorized testing, coherent commits and pushing ready isolated feature branches. No default-branch merge, deployment, device install, OS trust change, provider or content action. Source baseline 774b2d7bbe3fc3eb1967e917d4f6eaa5cc88676f. Candidate branch codex/security-runtime-20261102-sophia.
+
+### Verification
+Node22.23.4:11tests pass. Python3.13.18 static verifier passes. Workflow YAML/floors/whitespace checked.
+
+### Installed apps / exact owner actions
+No app payload changes or PWA reinstall required by these CI-only files. Existing Android identity, Stage catalog and human/device acceptance remain owner choices; not retested here.
+
+### Work log
+2026-11-02 Codex01a130c5-3018: completed scoped qualification on patched portable toolchains; original owner checkouts/index preserved. Runtime binaries, downloaded test wheels, QA artifacts and raw receipts stay outside source. Source commit/push follow the ready feature branch; installed and deployed copies remain unchanged. No active writer remains after the commit.

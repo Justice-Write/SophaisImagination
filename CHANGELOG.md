@@ -184,3 +184,7 @@ Four agents had left four divergent branches and `main` had not moved since
 - Owner choices: new repo + GitHub Pages; concept-era honest music framing; general-audience public scope.
 - Assets: 16 initial web derivatives from the owner-provided review set (gallery 800×1067, hero 1600×900, OG 1200×630, favicon/touch icons from avatar). This historical site selection does not imply social-package or rights approval; source records remain in the owner's private archive.
 - Infra: GitHub Actions Pages workflow with an allowlisted artifact, CNAME, robots.txt, sitemap.xml, `.nojekyll`, and `.gitignore`.
+
+
+## 2026-11-02 — security runtime selection (local candidate)
+CI selects patched Node22.23.4 and Python3.13.18 explicitly rather than inheriting runner versions. Public site content unchanged; not pushed/deployed.11 service-worker/deploy tests and static verifier pass.

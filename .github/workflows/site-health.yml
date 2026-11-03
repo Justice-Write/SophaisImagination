@@ -21,5 +21,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
+      - name: Select security-patched Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13.18"
       - name: Compare live site with committed public artifact
         run: python3 scripts/check_live.py --attempts 2 --delay 5
