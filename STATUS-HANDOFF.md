@@ -160,3 +160,6 @@ No app payload changes or PWA reinstall required by these CI-only files. Existin
 
 ### Work log
 2026-11-02 Codex01a130c5-3018: completed scoped qualification on patched portable toolchains; original owner checkouts/index preserved. Runtime binaries, downloaded test wheels, QA artifacts and raw receipts stay outside source. Source commit/push follow the ready feature branch; installed and deployed copies remain unchanged. No active writer remains after the commit.
+
+### Verified GitHub source backup
+Security source commit 15b114a6f1b7fa72bae167d48b8a6333d2f3da3d pushed and exact remote branch readback verified. Draft PR: https://github.com/Justice-Write/SophaisImagination/pull/2. No merge/deployment/install. Hosted checks are independent and remain under review; local qualification above is complete. The public-root handoff exception continues to apply.
