@@ -2,7 +2,7 @@
 
 > **Any model or agent (Claude, ChatGPT/Codex, Cursor, Copilot, Gemini, local models): read this whole file before you touch the repository.** It's the single source of truth for where the project stands and how to work here. It's written so you can get up to speed with no other context.
 
-**Last updated:** 2026-10-30 by Codex (Windows desktop PWA installed and verified; Android remains separate)
+**Last updated:** 2026-11-02 by Codex (isolated CI security candidate verified; live site and install package unchanged)
 
 ---
 
@@ -10,7 +10,7 @@
 
 *Add an entry here **before** you start. Remove it **after** you finish and log the result in the Work Log. If you find an entry here, someone is mid-task or was interrupted; see the protocol, step 4.*
 
-- None. (The owner-authorized Windows desktop installation is complete. New device targets still require their own approval and acceptance record.)
+- None. (The isolated security candidate is verified and preserved in draft PR #2. All remaining roadmap actions require owner review or approval.)
 
 ---
 
@@ -44,20 +44,21 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 ---
 
-## 3. Current state (verified 2026-10-30)
+## 3. Current state (verified 2026-11-02)
 
 | Item | State |
 | --- | --- |
-| **Live release** | Pages run `41087015436` for the desktop-acceptance record `c22b74c` succeeded 2026-10-30. It carries the same 52 HTTP-comparable files introduced through `bda5ab7`; all match live, redirects and branded 404 pass, and the worker cache is `sophai-20260927`. |
-| **Local `main`** | Fully pushed to `origin/main`; working tree clean after the final handoff commit. Use `git rev-parse HEAD` for the current repo-only documentation tip. |
+| **Live release** | Pages health run `41470855367` succeeded at `774b2d7` on 2026-11-02. The same 52 HTTP-comparable files still match live; redirects and the branded 404 pass, and the worker cache is `sophai-20260927`. |
+| **Local `main`** | Fully pushed to `origin/main` at `774b2d7`; the canonical checkout is clean. The security candidate below is isolated and does not change `main`. |
 | **Deployed hardening** | Hardened `sw.js`, LF-normalized public files, the CI test gate, and the fictional/synthetic disclosure on `404.html` are live. |
-| **Tests/package** | `node --test tests/*.test.cjs` → 11/11 pass. The verifier assembles 54 allowlisted files (3,463,469 bytes); 52 are HTTP-comparable. |
+| **Tests/package** | Live `main` retains its 11-test gate. The isolated candidate passes 14/14 on Node.js `22.23.4`, plus worker syntax, Python `3.13.18` compilation, and the artifact verifier. The public allowlist/package is unchanged. |
 | **Installation** | **Windows accepted 2026-10-30:** Edge installed the live PWA, launched it in a standalone app window at the expected origin, and Windows Start registration has the expected product name. Optional pin/autostart choices were dismissed. Device-level offline launch was not independently exercised. Android remains uninstalled and requires on-device Chrome interaction. |
-| **Roadmap** | Every remaining item is **owner-gated** (see §6). No agent-only engineering work is open. |
+| **Roadmap** | All remaining content, identity, campaign, distribution, and device items are **owner-gated** (see §6). Draft PR #2 is the only reviewable source candidate; it is unmerged and unpublished. |
 
 **Branches**
 
-- `main`: public content was introduced through `bda5ab7`; release-state, package-boundary and Windows desktop-acceptance documentation are fully pushed through `c22b74c`. Later handoff-only commits do not change `.pages-manifest`.
+- `main`: fully pushed at `774b2d7`. Public content was introduced through `bda5ab7`; later handoff-only commits do not change `.pages-manifest`.
+- `codex/security-runtime-20261102-sophia`: isolated, pushed candidate in draft PR #2. It selects Node.js `22.23.4` and Python `3.13.18`, pins the setup actions to immutable commits, and adds workflow-policy regression tests. **Not merged, deployed, live, or installed.**
 - `codex/roadmap-sites-20260927`, `chore/eol-normalization-and-live-pwa-evidence`: fully merged into `main`. Safe to delete.
 - `codex/sophai-meta-20260923`: old (`753de4d`), contained in `main`. Safe to delete.
 - `cursor/pwa-install-cb61` (remote only): **DO NOT MERGE.** It's a superseded parallel PWA attempt: it would add a second service worker, its icons don't meet Android's installability requirements, and its `start_url` points to an instructions page. A test fails if it's ever merged.
@@ -97,12 +98,13 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 
 **Owner**
 
-1. **Optional Android installation:** Windows desktop acceptance is complete. The Android target remains separate; it requires opening the site in Chrome and choosing *Add to Home Screen* or *Install*, then verifying standalone and offline behavior on that device.
-2. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
-3. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
-4. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
+1. **Security candidate review:** review draft PR #2. Merging it would change CI only; deployment still remains a separate owner decision.
+2. **Optional Android installation:** Windows desktop acceptance is complete. The Android target remains separate; it requires opening the site in Chrome and choosing *Add to Home Screen* or *Install*, then verifying standalone and offline behavior on that device.
+3. **Stage catalog decision:** the linked music account shows four public songs and the Stage lists two. The two unlisted songs need an owner story-boundary/general-audience decision. The review packet is in the owner's private archive.
+4. **Identity and campaign gates (v0.3):** approve the public name/hashtag, visual identity, the C01 post and caption, X write authority, Instagram spelling and status, YouTube positioning, and the music profile's synthetic disclosure. Full list: `ROADMAP.md` → v0.3.
+5. **Catalog, commerce, distribution (v0.4 and later):** each item needs its own written approval. See `ROADMAP.md`, `REVENUE-MODEL.md`, `docs/COMMERCE-READINESS.md`.
 
-**Any agent, now:** no unblocked code or release work. A new device-install session may proceed only with the owner's confirmation for that target and must record standalone/offline acceptance without exposing local device identifiers. Do not call Windows offline acceptance complete from the 2026-10-30 receipt.
+**Any agent, now:** no additional unblocked source or release work. Preserve draft PR #2 for owner review; do not merge or deploy it without approval. A new device-install session may proceed only with the owner's confirmation for that target and must record standalone/offline acceptance without exposing local device identifiers. Do not call Windows offline acceptance complete from the 2026-10-30 receipt.
 
 ---
 
@@ -120,13 +122,15 @@ The official **general-audience** website for **Sophia**, a fictional, AI-create
 | `.pages-manifest` | Deploy allowlist |
 | `sw.js` / `manifest.webmanifest` / `offline.html` | PWA |
 | `scripts/verify_site.py` / `scripts/check_live.py` | Artifact verifier / live comparison |
-| `tests/*.test.cjs` | Service-worker and deploy-coverage tests (run in CI) |
+| `tests/*.test.cjs` | Service-worker, deploy-coverage, and workflow-security tests (run in CI) |
 | `_ops/push.ps1` | Owner's guarded push helper (Windows PowerShell) |
 | `AGENTS.md` / `CLAUDE.md` | Point every agent tool to this file |
 
 ---
 
 ## 8. Work log (newest first)
+
+- **2026-11-02 — Codex:** hardened the isolated security candidate after finding that its new setup actions used mutable major-version tags despite this repository's immutable-pin policy. Pinned `actions/setup-node` and `actions/setup-python` to verified v6 commits and added a workflow regression guard. Portable Node.js `22.23.4` passed 14/14 tests and worker syntax; portable Python `3.13.18` passed compilation and artifact assembly; workflow YAML and `git diff --check` passed; the live comparator still matched all 52 public files, redirects, and branded 404. Public payload, installed PWA, provider accounts, catalog, identity, and owner-gated roadmap content remain unchanged. Candidate stays in draft PR #2; no merge or deployment.
 
 - **2026-10-30 — Codex:** with the owner's explicit approval, installed the live PWA through Microsoft Edge on Windows. The final dialog showed the expected app and publisher, the app launched in a standalone focused window at the expected HTTPS origin, and Windows Start registration read back the expected product name. Declined optional pin/shortcut/autostart conveniences. Added a public-safe acceptance receipt and reconciled roadmap/handoff records in `c22b74c`; 11/11 tests, worker syntax, Python compilation, artifact verification and `git diff --check` passed. Pages run `41087015436` succeeded and all 52 HTTP-comparable files, redirects and branded 404 matched live. No public page, package, account, provider, post, song, commerce setting or Android device changed; device-level offline launch remains unverified.
 
