@@ -32,11 +32,11 @@ jobs:
       # The glob is deliberate: bare `node --test` also scans _to_delete/ and
       # picks up stale backup copies of these tests, which fail.
       - name: Select security-patched Python
-        uses: actions/setup-python@v6
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
         with:
           python-version: "3.13.18"
       - name: Select security-patched Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
         with:
           node-version: "22.23.4"
       - name: Run service-worker and deploy-coverage tests

@@ -1,3 +1,12 @@
+# Changelog — sophais-imagination.com
+
+## 2026-11-02 — LOCAL SECURITY CANDIDATE — IMMUTABLE CI RUNTIME SELECTION
+
+- Retained the qualified Node.js `22.23.4` and Python `3.13.18` build/runtime selections in the Pages and live-health workflows.
+- Replaced mutable `actions/setup-node@v6` and `actions/setup-python@v6` references with the immutable commits behind their verified v6 releases, preserving the repository's existing supply-chain policy.
+- Added `tests/workflow-security.test.cjs`, which rejects every unpinned external workflow action and locks the explicitly qualified runtime versions. The complete suite passes 14/14 on portable Node.js `22.23.4`; the artifact verifier and Python compile checks pass on portable Python `3.13.18`.
+- This repository-only candidate is isolated on `codex/security-runtime-20261102-sophia` for draft PR #2. It changes no public site file or install package and is not merged, deployed, live, or installed.
+
 ## 2026-10-30 — DEVICE ACCEPTANCE — WINDOWS EDGE PWA
 
 - With the owner's explicit approval for this target, installed the live PWA from `https://sophais-imagination.com/` through Microsoft Edge on Windows. The final dialog identified **Sophia's Imagination** and publisher **sophais-imagination.com**.
@@ -28,8 +37,6 @@
 ## 2026-10-24 — CG-08 LOCAL SITE CHECKS
 
 - 2026-10-24 — Codex CG-08: fixed the missing fictional/synthetic disclosure on the 404 page. Local Lighthouse homepage scores (performance/accessibility/best practices/SEO): 92/100/100/100; verifier and 11 tests pass, all 9 public HTML pages disclose. No push or deploy; existing owner changes preserved.
-
-# Changelog — sophais-imagination.com
 
 ## 2026-10-20 — LOCAL, UNPUSHED — HANDOFF PROTOCOL AND LIVE-STATE CORRECTION
 
@@ -184,7 +191,3 @@ Four agents had left four divergent branches and `main` had not moved since
 - Owner choices: new repo + GitHub Pages; concept-era honest music framing; general-audience public scope.
 - Assets: 16 initial web derivatives from the owner-provided review set (gallery 800×1067, hero 1600×900, OG 1200×630, favicon/touch icons from avatar). This historical site selection does not imply social-package or rights approval; source records remain in the owner's private archive.
 - Infra: GitHub Actions Pages workflow with an allowlisted artifact, CNAME, robots.txt, sitemap.xml, `.nojekyll`, and `.gitignore`.
-
-
-## 2026-11-02 — security runtime selection (local candidate)
-CI selects patched Node22.23.4 and Python3.13.18 explicitly rather than inheriting runner versions. Public site content unchanged; not pushed/deployed.11 service-worker/deploy tests and static verifier pass.
